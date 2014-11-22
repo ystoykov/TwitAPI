@@ -2,7 +2,6 @@ package twitteroperation;
 
 
 
-
 import java.util.List;
 
 import twitter4j.Status;
