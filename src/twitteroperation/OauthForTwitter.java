@@ -3,14 +3,13 @@ package twitteroperation;
 import java.io.FileReader;
 import java.util.Properties;
 
-import twitter4j.conf.ConfigurationBuilder;
-
 public class OauthForTwitter {
 	
-	private String CONSUMER_KEY;
-	private String CONSUMER_SECRET;
-	private String TOKEN;
-	private String TOKEN_SECRET;
+	private String consumerKey;
+	private String consumerSecret;
+	private String token;
+	private String tokenSecret;
+	
 	
 	OauthForTwitter()
 	{
@@ -18,23 +17,48 @@ public class OauthForTwitter {
 		{
 			Properties properties = new Properties();
 			properties.load(reader);
-			CONSUMER_KEY =  properties.getProperty("consumer_key");
-			CONSUMER_SECRET =  properties.getProperty("consumer_secret");
-			TOKEN = properties.getProperty("access_token");
-			TOKEN_SECRET = properties.getProperty("access_token_secret");
+			setConsumerKey(properties.getProperty("consumer_key"));
+			setConsumerSecret(properties.getProperty("consumer_secret"));
+			setToken(properties.getProperty("access_token"));
+			setTokenSecret(properties.getProperty("access_token_secret"));
 		}
 		catch (Exception e) {
 		e.printStackTrace();
 		}
 		
-		ConfigurationBuilder cb = new ConfigurationBuilder();
-		
-		cb.setDebugEnabled(true)
-			.setOAuthConsumerKey(CONSUMER_KEY)
-			.setOAuthConsumerSecret(CONSUMER_SECRET)
-			.setOAuthAccessToken(TOKEN)
-			.setOAuthAccessTokenSecret(TOKEN_SECRET);
-		return;
 	}
+
+	public String getConsumerKey() {
+		return consumerKey;
+	}
+	public void setConsumerKey(String consumerKey) {
+		this.consumerKey = consumerKey;
+	}
+
+	public String getConsumerSecret() {
+		return consumerSecret;
+	}
+
+	public void setConsumerSecret(String consumerSecret) {
+		this.consumerSecret = consumerSecret;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public String getTokenSecret() {
+		return tokenSecret;
+	}
+
+	public void setTokenSecret(String tokenSecret) {
+		this.tokenSecret = tokenSecret;
+	}
+
+
 
 }

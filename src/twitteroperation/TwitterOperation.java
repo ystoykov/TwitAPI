@@ -14,11 +14,12 @@ public class TwitterOperation {
 
 	public static void main(String[] args) throws TwitterException {
 		ConfigurationBuilder cb = new ConfigurationBuilder();
+		OauthForTwitter oauth = new OauthForTwitter();
 		cb.setDebugEnabled(true)
-			.setOAuthConsumerKey("h08bdPNWLtDULAYw3lYTz2ZeJ")
-			.setOAuthConsumerSecret("y9GnMANqB05vso13inH9TKL0cHVce0fNf9vi924UmOmVscFqiS")
-			.setOAuthAccessToken("732936373-Gp2nt8ZDk6ciMBqg7KEAhfHwJX0BYxkRCq0D0teS")
-			.setOAuthAccessTokenSecret("pWTkFV5toNAAr5AWvVeqSF0fB5YYz1h61RvbtjfioJJI3");
+			.setOAuthConsumerKey(oauth.getConsumerKey())
+			.setOAuthConsumerSecret(oauth.getConsumerKey())
+			.setOAuthAccessToken(oauth.getToken())
+			.setOAuthAccessTokenSecret(oauth.getTokenSecret());
 		 
 			TwitterFactory tf = new TwitterFactory(cb.build());
 			
