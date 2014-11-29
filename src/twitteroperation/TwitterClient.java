@@ -2,11 +2,11 @@ package twitteroperation;
 
 public interface TwitterClient {
 	
-	public  void postingStatus(String post);
+	public  void postStatus();
 	
-	public getingStatus(String username);
+	public void getStatus(String username);
 	
-	public getingUserTimeline(String username);
+	public void getUserTimeline(String username);
 	
 
 }
